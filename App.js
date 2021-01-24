@@ -1,4 +1,15 @@
 export default () => {
+  const { people, loading, loadMore } = useSwapiPeople();
+
+  const pressHandler = (item) => {
+    Alert.alert(
+      "Char Info",
+      item.name + " - " + item.gender,
+      [{ text: "OK" }],
+      { cancelable: true }
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>SWAPI People's List</Text>
@@ -21,31 +32,31 @@ export default () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      
-      marginTop: 40,
-      backgroundColor: "black",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    header: {
-      color: 'gold',
-      marginTop: 20,
-      fontSize: 30
-    },
-    list: {
-      marginBottom: 40
-    },
-    listItem: {
-      backgroundColor: "grey",
-      color: 'gold',
-      fontSize: 15,
-      marginLeft: 10,
-      marginRight: 10,
-      marginBottom: 10,
-      borderRadius: 20,
-      paddingHorizontal: 90,
-      paddingVertical: 15
-    },
-  });
+  container: {
+    flex: 1,
+
+    marginTop: 40,
+    backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  header: {
+    color: "gold",
+    marginTop: 20,
+    fontSize: 30,
+  },
+  list: {
+    marginBottom: 40,
+  },
+  listItem: {
+    backgroundColor: "grey",
+    color: "gold",
+    fontSize: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+    borderRadius: 20,
+    paddingHorizontal: 90,
+    paddingVertical: 15,
+  },
+});
