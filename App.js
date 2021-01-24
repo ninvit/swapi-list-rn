@@ -1,3 +1,14 @@
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Alert,
+  FlatList,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+
 export default () => {
   const { people, loading, loadMore } = useSwapiPeople();
 
