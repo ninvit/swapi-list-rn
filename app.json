@@ -6,7 +6,7 @@
    "slug": "swapi-slug",
    "ios": {
      "bundleIdentifier": "com.nindex.ninvit",
-     "buildNumber": "1.0.0"
+     "buildNumber": "2.0.0"
    },
    "android": {
      "package": "com.nindex.ninvit",

@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
+import { Button } from "react-native-paper";
 
 const useSwapiPeople = () => {
   const [people, setPeople] = useState([]);
@@ -25,6 +26,7 @@ const useSwapiPeople = () => {
   }, [page]);
 
   const loadMore = () => {
+    console.log('test');
     setPage(page + 1);
   };
 
@@ -62,8 +64,9 @@ export default () => {
           </View>
         )}
         onEndReached={loadMore}
-        onEndReachedThreshold={0.1}
+        onEndReachedThreshold={0} 
       />
+      <Button style={styles.loadButton} onPress={loadMore}>Load more chars</Button>
     </SafeAreaView>
   );
 };
@@ -71,29 +74,27 @@ export default () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    marginTop: 40,
     backgroundColor: "black",
-    justifyContent: "center",
     alignItems: "center",
   },
   header: {
     color: "gold",
     marginTop: 20,
     fontSize: 30,
-  },
-  list: {
-    marginBottom: 40,
+    fontWeight: '500',
+    marginBottom: 10,
   },
   listItem: {
     backgroundColor: "grey",
     color: "gold",
-    fontSize: 15,
-    marginLeft: 10,
-    marginRight: 10,
+    fontSize: 25,
     marginBottom: 10,
     borderRadius: 20,
     paddingHorizontal: 90,
-    paddingVertical: 15,
+    paddingVertical: 25,
   },
+  loadButton: {
+    backgroundColor: 'grey',
+    color: 'blue',
+  }
 });
