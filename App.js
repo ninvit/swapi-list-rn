@@ -9,8 +9,34 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+const useSwapiPeople = () => {
+  const [people, setPeople] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://swapi.dev/api/people?page=${page}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setPeople([...people, ...res.results]);
+        setLoading(false);
+      });
+  }, [page]);
+
+  const loadMore = () => {
+    setPage(page + 1);
+  };
+
+  return {
+    people,
+    loading,
+    loadMore,
+  };
+};
+
 export default () => {
-  const { people, loading, loadMore } = useSwapiPeople();
+  const { people, loadMore } = useSwapiPeople();
 
   const pressHandler = (item) => {
     Alert.alert(
