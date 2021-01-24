@@ -8,7 +8,6 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import { Button } from "react-native-paper";
 
 const useSwapiPeople = () => {
   const [people, setPeople] = useState([]);
@@ -64,10 +63,9 @@ export default () => {
           </View>
         )}
         onEndReached={loadMore}
-        onEndReachedThreshold={0} 
+        onEndReachedThreshold={0.1}
       />
-      <Button style={styles.loadButton} onPress={loadMore}>Load more chars</Button>
-    </SafeAreaView>
+      </SafeAreaView>
   );
 };
 
